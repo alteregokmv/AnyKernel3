@@ -4,13 +4,13 @@
 ## AnyKernel setup
 # begin properties
 properties() { '
-kernel.string=lybkernel vayu miui
+kernel.string=lybkernel sofia test
 do.devicecheck=0
 do.modules=0
 do.cleanup=1
 do.cleanuponabort=0
-device.name1=vayu
-device.name2=bhima
+device.name1=Sofia
+device.name2=
 device.name3=
 device.name4=
 device.name5=
@@ -18,7 +18,7 @@ supported.versions=
 '; } # end properties
 
 # shell variables
-block=/dev/block/bootdevice/by-name/boot;
+block=/dev/block/by-name/boot;
 is_slot_device=auto;
 ramdisk_compression=auto;
 
