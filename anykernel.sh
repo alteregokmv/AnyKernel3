@@ -4,7 +4,7 @@
 ## AnyKernel setup
 # begin properties
 properties() { '
-kernel.string=lybkernel vayu miui
+kernel.string=lybkernel vayu (MiCode base)
 do.devicecheck=0
 do.modules=0
 do.cleanup=1
