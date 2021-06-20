@@ -43,12 +43,38 @@ if [ -d $ramdisk/overlay ]; then
   rm -rf $ramdisk/overlay;
 fi;
 
-patch_cmdline "lyb_boost_def=1 " ""
-patch_cmdline "lyb_eff_def=1 " ""
-patch_cmdline "lyb_tsmod=1 " ""
-patch_cmdline "lyb_tsmod=2 " ""
+remove_old_cmdline () {
+patch_cmdline "lyb_boost_def=1" " "
+patch_cmdline "lyb_eff_def=1" " "
+patch_cmdline "lyb_tsmod=1" " "
+patch_cmdline "lyb_tsmod=2" " "
+patch_cmdline "dfps.min_fps=30" " "
+patch_cmdline "dfps.min_fps=48" " "
+patch_cmdline "dfps.min_fps=50" " "
+patch_cmdline "dfps.min_fps=60" " "
+patch_cmdline "dfps.min_fps=90" " "
+patch_cmdline "dfps.min_fps=120" " "
+patch_cmdline "dfps.max_fps=30" " "
+patch_cmdline "dfps.max_fps=48" " "
+patch_cmdline "dfps.max_fps=50" " "
+patch_cmdline "dfps.max_fps=60" " "
+patch_cmdline "dfps.max_fps=90" " "
+patch_cmdline "dfps.max_fps=120" " "
+}
 
-patch_cmdline "kpti=off " "kpti=off lyb_tsmod=2 "
+# remove old cmd line many times just to make sure it is all cleaned up
+remove_old_cmdline
+remove_old_cmdline
+remove_old_cmdline
+remove_old_cmdline
+remove_old_cmdline
+remove_old_cmdline
+remove_old_cmdline
+remove_old_cmdline
+remove_old_cmdline
+remove_old_cmdline
+
+patch_cmdline "kpti=off" "kpti=off lyb_tsmod=2"
 
 write_boot;
 ## end install
