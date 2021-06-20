@@ -43,6 +43,13 @@ if [ -d $ramdisk/overlay ]; then
   rm -rf $ramdisk/overlay;
 fi;
 
+patch_cmdline "lyb_boost_def=1 " ""
+patch_cmdline "lyb_eff_def=1 " ""
+patch_cmdline "lyb_tsmod=1 " ""
+patch_cmdline "lyb_tsmod=2 " ""
+
+patch_cmdline "kpti=off " "kpti=off lyb_tsmod=2 "
+
 write_boot;
 ## end install
 
