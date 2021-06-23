@@ -44,22 +44,11 @@ if [ -d $ramdisk/overlay ]; then
 fi;
 
 remove_old_cmdline () {
-patch_cmdline "lyb_boost_def=1" " "
-patch_cmdline "lyb_eff_def=1" " "
-patch_cmdline "lyb_tsmod=1" " "
-patch_cmdline "lyb_tsmod=2" " "
-patch_cmdline "dfps.min_fps=30" " "
-patch_cmdline "dfps.min_fps=48" " "
-patch_cmdline "dfps.min_fps=50" " "
-patch_cmdline "dfps.min_fps=60" " "
-patch_cmdline "dfps.min_fps=90" " "
-patch_cmdline "dfps.min_fps=120" " "
-patch_cmdline "dfps.max_fps=30" " "
-patch_cmdline "dfps.max_fps=48" " "
-patch_cmdline "dfps.max_fps=50" " "
-patch_cmdline "dfps.max_fps=60" " "
-patch_cmdline "dfps.max_fps=90" " "
-patch_cmdline "dfps.max_fps=120" " "
+patch_cmdline "lyb_boost_def" " "
+patch_cmdline "lyb_eff_def" " "
+patch_cmdline "lyb_tsmod" " "
+patch_cmdline "dfps.min_fps" " "
+patch_cmdline "dfps.max_fps" " "
 }
 
 # remove old cmd line many times just to make sure it is all cleaned up
@@ -74,7 +63,34 @@ remove_old_cmdline
 remove_old_cmdline
 remove_old_cmdline
 
-patch_cmdline "kpti=off" "kpti=off lyb_tsmod=2"
+LYB_TSMOD=0
+LYB_BOOST_DEF=0
+LYB_EFF_DEF=0
+LYB_OOS=0
+
+if [ -f /tmp/lyb_tsmod ]; then
+  LYB_TSMOD="$(cat /tmp/lyb_tsmod)"
+fi;
+
+if [ -f /tmp/lyb_oos ]; then
+  LYB_OOS="$(cat /tmp/lyb_oos)"
+fi;
+
+if [ -f /tmp/lyb_eff_def ]; then
+  LYB_EFF_DEF="$(cat /tmp/lyb_eff_def)"
+fi;
+
+if [ -f /tmp/lyb_boost_def ]; then
+  LYB_BOOST_DEF="$(cat /tmp/lyb_boost_def)"
+fi;
+
+if [ "$LYB_OOS" ==  1  ];then
+ui_print "cmdline = lyb_tsmod=$LYB_TSMOD lyb_eff_def=$LYB_EFF_DEF lyb_boost_def=$LYB_BOOST_DEF dfps.min_fps=60 dfps.max_fps=120"
+patch_cmdline "kpti=off" "kpti=off lyb_tsmod=$LYB_TSMOD lyb_eff_def=$LYB_EFF_DEF lyb_boost_def=$LYB_BOOST_DEF dfps.min_fps=60 dfps.max_fps=120"
+else
+ui_print "cmdline = lyb_tsmod=$LYB_TSMOD lyb_eff_def=$LYB_EFF_DEF lyb_boost_def=$LYB_BOOST_DEF"
+patch_cmdline "kpti=off" "kpti=off lyb_tsmod=$LYB_TSMOD lyb_eff_def=$LYB_EFF_DEF lyb_boost_def=$LYB_BOOST_DEF"
+fi
 
 write_boot;
 ## end install
