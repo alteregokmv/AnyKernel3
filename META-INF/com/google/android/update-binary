@@ -28,7 +28,7 @@ if [[ $BASENAME == *"effcpu"* ]]; then
   echo 1 > /tmp/lyb_boost_def
 fi
 
-if [[ $BASENAME == *"oos"* ]]; then
+if [[ $BASENAME == *"oxygenos"* ]]; then
   echo 1 > /tmp/lyb_oos
 fi
 
