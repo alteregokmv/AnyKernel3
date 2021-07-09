@@ -86,10 +86,18 @@ fi;
 
 if [ "$LYB_OOS" ==  1  ];then
 ui_print "cmdline = lyb_tsmod=$LYB_TSMOD lyb_eff_def=$LYB_EFF_DEF lyb_boost_def=$LYB_BOOST_DEF dfps.min_fps=60 dfps.max_fps=120"
-patch_cmdline "kpti=off" "kpti=off lyb_tsmod=$LYB_TSMOD lyb_eff_def=$LYB_EFF_DEF lyb_boost_def=$LYB_BOOST_DEF dfps.min_fps=60 dfps.max_fps=120"
+# patch_cmdline "kpti=off" "kpti=off lyb_tsmod=$LYB_TSMOD lyb_eff_def=$LYB_EFF_DEF lyb_boost_def=$LYB_BOOST_DEF dfps.min_fps=60 dfps.max_fps=120"
+patch_cmdline "lyb_boost_def" "lyb_boost_def=$LYB_BOOST_DEF"
+patch_cmdline "lyb_eff_def" "lyb_eff_def=$LYB_EFF_DEF"
+patch_cmdline "lyb_tsmod" "lyb_tsmod=$LYB_TSMOD"
+patch_cmdline "dfps.min_fps" "dfps.min_fps=60"
+patch_cmdline "dfps.max_fps" "dfps.max_fps=120"
 else
 ui_print "cmdline = lyb_tsmod=$LYB_TSMOD lyb_eff_def=$LYB_EFF_DEF lyb_boost_def=$LYB_BOOST_DEF"
-patch_cmdline "kpti=off" "kpti=off lyb_tsmod=$LYB_TSMOD lyb_eff_def=$LYB_EFF_DEF lyb_boost_def=$LYB_BOOST_DEF"
+# patch_cmdline "kpti=off" "kpti=off lyb_tsmod=$LYB_TSMOD lyb_eff_def=$LYB_EFF_DEF lyb_boost_def=$LYB_BOOST_DEF dfps.min_fps=60 dfps.max_fps=120"
+patch_cmdline "lyb_boost_def" "lyb_boost_def=$LYB_BOOST_DEF"
+patch_cmdline "lyb_eff_def" "lyb_eff_def=$LYB_EFF_DEF"
+patch_cmdline "lyb_tsmod" "lyb_tsmod=$LYB_TSMOD"
 fi
 
 write_boot;
