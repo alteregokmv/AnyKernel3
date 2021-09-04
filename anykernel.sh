@@ -85,7 +85,7 @@ if [ -f /tmp/lyb_boost_def ]; then
   LYB_BOOST_DEF="$(cat /tmp/lyb_boost_def)"
 fi;
 
-if [ -f /tmp/personal ]; then
+if [ -f /tmp/lyb_personal ]; then
   LYB_PERSONAL="$(cat /tmp/lyb_personal)"
 fi;
 
