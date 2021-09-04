@@ -11,6 +11,12 @@ LYB_BOOST_DEF=0
 LYB_EFF_DEF=0
 LYB_OOS=0
 
+rm /tmp/lyb_tsmod
+rm /tmp/lyb_boost_def
+rm /tmp/lyb_eff_def
+rm /tmp/lyb_oos
+rm /tmp/lyb_personal
+
 if [[ $BASENAME == *"tsmod"* ]]; then
   echo 1 > /tmp/lyb_tsmod
 fi
@@ -30,6 +36,10 @@ fi
 
 if [[ $BASENAME == *"oxygenos"* ]]; then
   echo 1 > /tmp/lyb_oos
+fi
+
+if [[ $BASENAME == *"personal"* ]]; then
+  echo 1 > /tmp/lyb_personal
 fi
 
 BOOTMODE=false;

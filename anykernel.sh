@@ -49,6 +49,7 @@ patch_cmdline "lyb_eff_def" " "
 patch_cmdline "lyb_tsmod" " "
 patch_cmdline "dfps.min_fps" " "
 patch_cmdline "dfps.max_fps" " "
+patch_cmdline "thermal.disable_dcvs" " "
 }
 
 # remove old cmd line many times just to make sure it is all cleaned up
@@ -84,6 +85,10 @@ if [ -f /tmp/lyb_boost_def ]; then
   LYB_BOOST_DEF="$(cat /tmp/lyb_boost_def)"
 fi;
 
+if [ -f /tmp/personal] ]; then
+  LYB_PERSONAL="$(cat /tmp/lyb_personal)"
+fi;
+
 if [ "$LYB_OOS" ==  1  ];then
 ui_print "cmdline = lyb_tsmod=$LYB_TSMOD lyb_eff_def=$LYB_EFF_DEF lyb_boost_def=$LYB_BOOST_DEF dfps.min_fps=60 dfps.max_fps=120"
 # patch_cmdline "kpti=off" "kpti=off lyb_tsmod=$LYB_TSMOD lyb_eff_def=$LYB_EFF_DEF lyb_boost_def=$LYB_BOOST_DEF dfps.min_fps=60 dfps.max_fps=120"
@@ -98,6 +103,12 @@ ui_print "cmdline = lyb_tsmod=$LYB_TSMOD lyb_eff_def=$LYB_EFF_DEF lyb_boost_def=
 patch_cmdline "lyb_boost_def" "lyb_boost_def=$LYB_BOOST_DEF"
 patch_cmdline "lyb_eff_def" "lyb_eff_def=$LYB_EFF_DEF"
 patch_cmdline "lyb_tsmod" "lyb_tsmod=$LYB_TSMOD"
+fi
+
+if  [ "$LYB_PERSONAL" == 1 ];then
+ui_print("WARNING WARNING WARNING")
+ui_print("personal detected - adding more dangerous tweaks haha")
+patch_cmdline "thermal.disable_dcvs" "thermal.disable_dcvs=1"
 fi
 
 write_boot;
