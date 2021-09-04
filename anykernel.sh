@@ -85,7 +85,7 @@ if [ -f /tmp/lyb_boost_def ]; then
   LYB_BOOST_DEF="$(cat /tmp/lyb_boost_def)"
 fi;
 
-if [ -f /tmp/personal] ]; then
+if [ -f /tmp/personal ]; then
   LYB_PERSONAL="$(cat /tmp/lyb_personal)"
 fi;
 
@@ -107,7 +107,8 @@ fi
 
 if  [ "$LYB_PERSONAL" == 1 ];then
 ui_print "WARNING WARNING WARNING"
-ui_print "personal detected - adding more dangerous tweaks haha"
+ui_print "personal detected"
+ui_print "adding more dangerous tweaks haha"
 patch_cmdline "thermal.disable_dcvs" "thermal.disable_dcvs=1"
 fi
 
