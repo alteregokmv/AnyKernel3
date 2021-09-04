@@ -106,8 +106,8 @@ patch_cmdline "lyb_tsmod" "lyb_tsmod=$LYB_TSMOD"
 fi
 
 if  [ "$LYB_PERSONAL" == 1 ];then
-ui_print("WARNING WARNING WARNING")
-ui_print("personal detected - adding more dangerous tweaks haha")
+ui_print "WARNING WARNING WARNING"
+ui_print "personal detected - adding more dangerous tweaks haha"
 patch_cmdline "thermal.disable_dcvs" "thermal.disable_dcvs=1"
 fi
 
