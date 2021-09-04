@@ -16,6 +16,7 @@ rm /tmp/lyb_boost_def
 rm /tmp/lyb_eff_def
 rm /tmp/lyb_oos
 rm /tmp/lyb_personal
+rm /tmp/lyb_touch_fw
 
 if [[ $BASENAME == *"tsmod"* ]]; then
   echo 1 > /tmp/lyb_tsmod
@@ -40,6 +41,14 @@ fi
 
 if [[ $BASENAME == *"personal"* ]]; then
   echo 1 > /tmp/lyb_personal
+fi
+
+if [[ $BASENAME == *"touchfw_v8"* ]]; then
+  echo 1 > /tmp/lyb_touch_fw
+fi
+
+if [[ $BASENAME == *"touchfw_id"* ]]; then
+  echo 2 > /tmp/lyb_touch_fw
 fi
 
 BOOTMODE=false;

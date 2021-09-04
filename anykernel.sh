@@ -50,6 +50,7 @@ patch_cmdline "lyb_tsmod" " "
 patch_cmdline "dfps.min_fps" " "
 patch_cmdline "dfps.max_fps" " "
 patch_cmdline "thermal.disable_dcvs" " "
+patch_cmdline "lyb_touchfw" " "
 }
 
 # remove old cmd line many times just to make sure it is all cleaned up
@@ -68,6 +69,7 @@ LYB_TSMOD=0
 LYB_BOOST_DEF=0
 LYB_EFF_DEF=0
 LYB_OOS=0
+LYB_TOUCHFW=0
 
 if [ -f /tmp/lyb_tsmod ]; then
   LYB_TSMOD="$(cat /tmp/lyb_tsmod)"
@@ -89,6 +91,10 @@ if [ -f /tmp/lyb_personal ]; then
   LYB_PERSONAL="$(cat /tmp/lyb_personal)"
 fi;
 
+if [ -f /tmp/lyb_touch_fw ]; then
+  LYB_TOUCHFW="$(cat /tmp/lyb_touch_fw)"
+fi;
+
 if [ "$LYB_OOS" ==  1  ];then
 ui_print "cmdline = lyb_tsmod=$LYB_TSMOD lyb_eff_def=$LYB_EFF_DEF lyb_boost_def=$LYB_BOOST_DEF dfps.min_fps=60 dfps.max_fps=120"
 # patch_cmdline "kpti=off" "kpti=off lyb_tsmod=$LYB_TSMOD lyb_eff_def=$LYB_EFF_DEF lyb_boost_def=$LYB_BOOST_DEF dfps.min_fps=60 dfps.max_fps=120"
@@ -103,6 +109,20 @@ ui_print "cmdline = lyb_tsmod=$LYB_TSMOD lyb_eff_def=$LYB_EFF_DEF lyb_boost_def=
 patch_cmdline "lyb_boost_def" "lyb_boost_def=$LYB_BOOST_DEF"
 patch_cmdline "lyb_eff_def" "lyb_eff_def=$LYB_EFF_DEF"
 patch_cmdline "lyb_tsmod" "lyb_tsmod=$LYB_TSMOD"
+fi
+
+if  [ "$LYB_TOUCHFW" == 0 ];then
+ui_print "touch fw from 12.0.1/micode"
+fi
+
+if  [ "$LYB_TOUCHFW" == 1 ];then
+ui_print "touch fw from in/global fw 12.5"
+patch_cmdline "lyb_touchfw" "lyb_touchfw=1"
+fi
+
+if  [ "$LYB_TOUCHFW" == 2 ];then
+ui_print "touch fw from indonesian fw 12.5"
+patch_cmdline "lyb_touchfw" "lyb_touchfw=2"
 fi
 
 if  [ "$LYB_PERSONAL" == 1 ];then
