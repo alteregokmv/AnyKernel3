@@ -17,6 +17,7 @@ rm /tmp/lyb_eff_def
 rm /tmp/lyb_oos
 rm /tmp/lyb_personal
 rm /tmp/lyb_touch_fw
+rm /tmp/lyb_ocuv
 
 if [[ $BASENAME == *"tsmod"* ]]; then
   echo 1 > /tmp/lyb_tsmod
@@ -49,6 +50,10 @@ fi
 
 if [[ $BASENAME == *"touchfw_id"* ]]; then
   echo 2 > /tmp/lyb_touch_fw
+fi
+
+if [[ $BASENAME == *"ocuv"* ]]; then
+  echo 1 > /tmp/lyb_ocuv
 fi
 
 BOOTMODE=false;

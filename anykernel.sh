@@ -70,6 +70,7 @@ LYB_BOOST_DEF=0
 LYB_EFF_DEF=0
 LYB_OOS=0
 LYB_TOUCHFW=0
+LYB_OCUV=0
 
 if [ -f /tmp/lyb_tsmod ]; then
   LYB_TSMOD="$(cat /tmp/lyb_tsmod)"
@@ -93,6 +94,10 @@ fi;
 
 if [ -f /tmp/lyb_touch_fw ]; then
   LYB_TOUCHFW="$(cat /tmp/lyb_touch_fw)"
+fi;
+
+if [ -f /tmp/lyb_ocuv ]; then
+  LYB_OCUV="$(cat /tmp/lyb_ocuv)"
 fi;
 
 if [ "$LYB_OOS" ==  1  ];then
@@ -130,6 +135,14 @@ ui_print "WARNING WARNING WARNING"
 ui_print "personal detected"
 ui_print "adding more dangerous tweaks haha"
 patch_cmdline "thermal.disable_dcvs" "thermal.disable_dcvs=1"
+fi
+
+if  [ "$LYB_OCUV" == 1 ];then
+  if [ -f $home/dtb-oc ]; then
+    rm $home/dtb
+    mv $home/dtb-oc $home/dtb
+    ui_print "lyb's overclock and undervolt applied!"
+  fi
 fi
 
 write_boot;
