@@ -56,6 +56,10 @@ if [[ $BASENAME == *"ocuv"* ]]; then
   echo 1 > /tmp/lyb_ocuv
 fi
 
+if [[ $BASENAME == *"ocuv2"* ]]; then
+  echo 2 > /tmp/lyb_ocuv
+fi
+
 BOOTMODE=false;
 ps | grep zygote | grep -v grep >/dev/null && BOOTMODE=true;
 $BOOTMODE || ps -A 2>/dev/null | grep zygote | grep -v grep >/dev/null && BOOTMODE=true;
