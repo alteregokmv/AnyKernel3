@@ -142,7 +142,7 @@ if  [ "$LYB_OCUV" == 1 ];then
     rm $home/dtb
     mv $home/dtb-oc $home/dtb
     ui_print "WARNING WARNING WARNING"
-    ui_print "lyb's overclock and undervolt v2 applied!"
+    ui_print "lyb's overclock and undervolt applied!"
   fi
 fi
 
@@ -151,7 +151,7 @@ if  [ "$LYB_OCUV" == 2 ];then
     rm $home/dtb
     mv $home/dtb-loc $home/dtb
     ui_print "WARNING WARNING WARNING"
-    ui_print "lyb's overclock and undervolt applied!"
+    ui_print "lyb's overclock and undervolt v2 applied!"
   fi
 fi
 
