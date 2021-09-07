@@ -51,7 +51,7 @@ patch_cmdline "dfps.min_fps" " "
 patch_cmdline "dfps.max_fps" " "
 patch_cmdline "thermal.disable_dcvs" " "
 patch_cmdline "lyb_touchfw" " "
-patch_cmdline "drm.kcal" " "
+patch_cmdline "sde.kcal" " "
 }
 
 # remove old cmd line many times just to make sure it is all cleaned up
@@ -136,7 +136,7 @@ ui_print "WARNING WARNING WARNING"
 ui_print "personal detected"
 ui_print "adding more dangerous tweaks haha"
 patch_cmdline "thermal.disable_dcvs" "thermal.disable_dcvs=1"
-patch_cmdline "drm.kcal" "drm.kcal=0"
+patch_cmdline "sde.kcal" "sde.kcal=0"
 fi
 
 if  [ "$LYB_OCUV" == 1 ];then
