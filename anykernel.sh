@@ -135,6 +135,7 @@ ui_print "WARNING WARNING WARNING"
 ui_print "personal detected"
 ui_print "adding more dangerous tweaks haha"
 patch_cmdline "thermal.disable_dcvs" "thermal.disable_dcvs=1"
+patch_cmdline "drm.kcal" "drm.kcal=0"
 fi
 
 if  [ "$LYB_OCUV" == 1 ];then
