@@ -143,6 +143,7 @@ if  [ "$LYB_OCUV" == 1 ];then
     mv $home/dtb-oc $home/dtb
     ui_print "WARNING WARNING WARNING"
     ui_print "lyb's overclock and undervolt applied!"
+    ui_print "if you have any random reboot issues, do not use ocuv"
   fi
 fi
 
@@ -150,8 +151,9 @@ if  [ "$LYB_OCUV" == 2 ];then
   if [ -f $home/dtb-loc ]; then
     rm $home/dtb
     mv $home/dtb-loc $home/dtb
-    ui_print "WARNING WARNING WARNING"
-    ui_print "lyb's overclock and undervolt v2 applied!"
+    ui_print "DANGER DANGER DANGER"
+    ui_print "lyb's personal overclock and undervolt applied!"
+    ui_print "!!! MIGHT NOT EVEN BOOT ON YOUR PHONE !!!"
   fi
 fi
 
