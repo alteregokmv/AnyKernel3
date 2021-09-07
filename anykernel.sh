@@ -51,6 +51,7 @@ patch_cmdline "dfps.min_fps" " "
 patch_cmdline "dfps.max_fps" " "
 patch_cmdline "thermal.disable_dcvs" " "
 patch_cmdline "lyb_touchfw" " "
+patch_cmdline "drm.kcal" " "
 }
 
 # remove old cmd line many times just to make sure it is all cleaned up
