@@ -103,7 +103,7 @@ if [ -f /tmp/lyb_ocuv ]; then
 fi;
 
 if [ -f /tmp/lyb_kcal ]; then
-  LYB_KCAL="$(cat /tmp/lyb_ocuv)"
+  LYB_KCAL="$(cat /tmp/lyb_kcal)"
 fi;
 
 if [ "$LYB_OOS" ==  1  ];then
