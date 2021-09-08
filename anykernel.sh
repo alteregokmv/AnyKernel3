@@ -72,6 +72,7 @@ LYB_EFF_DEF=0
 LYB_OOS=0
 LYB_TOUCHFW=0
 LYB_OCUV=0
+LYB_KCAL=1
 
 if [ -f /tmp/lyb_tsmod ]; then
   LYB_TSMOD="$(cat /tmp/lyb_tsmod)"
@@ -99,6 +100,10 @@ fi;
 
 if [ -f /tmp/lyb_ocuv ]; then
   LYB_OCUV="$(cat /tmp/lyb_ocuv)"
+fi;
+
+if [ -f /tmp/lyb_kcal ]; then
+  LYB_KCAL="$(cat /tmp/lyb_ocuv)"
 fi;
 
 if [ "$LYB_OOS" ==  1  ];then
@@ -136,6 +141,9 @@ ui_print "WARNING WARNING WARNING"
 ui_print "personal detected"
 ui_print "adding more dangerous tweaks haha"
 patch_cmdline "thermal.disable_dcvs" "thermal.disable_dcvs=1"
+fi
+
+if  [ "$LYB_KCAL" == 0 ];then
 patch_cmdline "sde.kcal" "sde.kcal=0"
 fi
 

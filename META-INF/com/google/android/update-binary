@@ -60,6 +60,10 @@ if [[ $BASENAME == *"ocuv2"* ]]; then
   echo 2 > /tmp/lyb_ocuv
 fi
 
+if [[ $BASENAME == *"nokcal"* ]]; then
+  echo 0 > /tmp/lyb_kcal
+fi
+
 BOOTMODE=false;
 ps | grep zygote | grep -v grep >/dev/null && BOOTMODE=true;
 $BOOTMODE || ps -A 2>/dev/null | grep zygote | grep -v grep >/dev/null && BOOTMODE=true;
