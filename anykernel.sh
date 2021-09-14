@@ -52,6 +52,8 @@ patch_cmdline "dfps.max_fps" " "
 patch_cmdline "thermal.disable_dcvs" " "
 patch_cmdline "lyb_touchfw" " "
 patch_cmdline "sde.kcal" " "
+patch_cmdline "sound.boost" " "
+patch_cmdline "sound.control" " "
 }
 
 # remove old cmd line many times just to make sure it is all cleaned up
@@ -73,6 +75,7 @@ LYB_OOS=0
 LYB_TOUCHFW=0
 LYB_OCUV=0
 LYB_KCAL=1
+LYB_SCTRL=0
 
 if [ -f /tmp/lyb_tsmod ]; then
   LYB_TSMOD="$(cat /tmp/lyb_tsmod)"
@@ -104,6 +107,10 @@ fi;
 
 if [ -f /tmp/lyb_kcal ]; then
   LYB_KCAL="$(cat /tmp/lyb_kcal)"
+fi;
+
+if [ -f /tmp/lyb_sctrl ]; then
+  LYB_SCTRL="$(cat /tmp/lyb_sctrl)"
 fi;
 
 if [ "$LYB_OOS" ==  1  ];then
@@ -141,6 +148,11 @@ ui_print "WARNING WARNING WARNING"
 ui_print "personal detected"
 ui_print "adding more dangerous tweaks haha"
 patch_cmdline "thermal.disable_dcvs" "thermal.disable_dcvs=1"
+patch_cmdline "sound.boost" "sound.boost=1"
+fi
+
+if [ "$LYB_SCTRL" == 1]; then
+patch_cmdline "sound.control" "sound.control=1"
 fi
 
 if  [ "$LYB_KCAL" == 0 ];then
