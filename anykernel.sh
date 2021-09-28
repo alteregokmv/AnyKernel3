@@ -143,6 +143,11 @@ ui_print "touch fw from indonesian fw 12.5"
 patch_cmdline "lyb_touchfw" "lyb_touchfw=2"
 fi
 
+if  [ "$LYB_TOUCHFW" == 3 ];then
+ui_print "touch fw from indonesian fw 12.5.4"
+patch_cmdline "lyb_touchfw" "lyb_touchfw=3"
+fi
+
 if  [ "$LYB_PERSONAL" == 1 ];then
 ui_print "WARNING WARNING WARNING"
 ui_print "personal detected"

@@ -52,6 +52,10 @@ if [[ $BASENAME == *"touchfw_id"* ]]; then
   echo 2 > /tmp/lyb_touch_fw
 fi
 
+if [[ $BASENAME == *"touchfw_id1254"* ]]; then
+  echo 3 > /tmp/lyb_touch_fw
+fi
+
 if [[ $BASENAME == *"ocuv"* ]]; then
   echo 1 > /tmp/lyb_ocuv
 fi
