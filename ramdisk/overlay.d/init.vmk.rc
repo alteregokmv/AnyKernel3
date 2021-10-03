@@ -1,0 +1,7 @@
+# Set init values
+
+on property:sys.boot_completed=1
+    exec u:r:magisk:s0 root root -- ${MAGISKTMP}/init.vmk.sh
+   
+on property:vendor.post_boot.parsed=1
+    exec u:r:magisk:s0 root root -- ${MAGISKTMP}/init.vmk.sh
