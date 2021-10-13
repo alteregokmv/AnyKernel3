@@ -10,7 +10,7 @@ sleep 10
 # Gold+   825600 940800 1056000 1171200 1286400 1401600 1497600 1612800 1708800 1804800 1920000 2016000 2131200 2227200 2323200 2419200 2534400 2649600 2745600 2841600 2956800 
 
 # CPU silver
-echo 1555200 > /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq
+echo 1632000 > /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq
 #echo 1785600 > /sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq
 # CPU gold
 echo 710400 > /sys/devices/system/cpu/cpufreq/policy4/scaling_min_freq
@@ -47,33 +47,33 @@ echo "schedutil" > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
 echo 1 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/pl
 echo 90 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/hispeed_load
 echo 1785600 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/hispeed_freq
-echo 50 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/up_rate_limit_us
-echo 750 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/down_rate_limit_us
+echo 0 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/up_rate_limit_us
+echo 500 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/down_rate_limit_us
 #
 # CPU gold
 echo "schedutil" > /sys/devices/system/cpu/cpufreq/policy4/scaling_governor
 echo 1 > /sys/devices/system/cpu/cpufreq/policy4/schedutil/pl
 echo 92 > /sys/devices/system/cpu/cpufreq/policy4/schedutil/hispeed_load
 echo 1401600 > /sys/devices/system/cpu/cpufreq/policy4/schedutil/hispeed_freq
-echo 1500 > /sys/devices/system/cpu/cpufreq/policy4/schedutil/up_rate_limit_us
-echo 200 > /sys/devices/system/cpu/cpufreq/policy4/schedutil/down_rate_limit_us
+echo 1400 > /sys/devices/system/cpu/cpufreq/policy4/schedutil/up_rate_limit_us
+echo 150 > /sys/devices/system/cpu/cpufreq/policy4/schedutil/down_rate_limit_us
 #
 # CPU gold+
 echo "schedutil" > /sys/devices/system/cpu/cpufreq/policy7/scaling_governor
 echo 1 > /sys/devices/system/cpu/cpufreq/policy7/schedutil/pl
 echo 93 > /sys/devices/system/cpu/cpufreq/policy7/schedutil/hispeed_load
 echo 1804800 > /sys/devices/system/cpu/cpufreq/policy7/schedutil/hispeed_freq
-echo 2000 > /sys/devices/system/cpu/cpufreq/policy7/schedutil/up_rate_limit_us
-echo 200 > /sys/devices/system/cpu/cpufreq/policy7/schedutil/down_rate_limit_us
+echo 1800 > /sys/devices/system/cpu/cpufreq/policy7/schedutil/up_rate_limit_us
+echo 150 > /sys/devices/system/cpu/cpufreq/policy7/schedutil/down_rate_limit_us
 
 # Setting scheduler parameters
 echo 2 > /proc/sys/kernel/sched_tunable_scaling
 #echo 0 > /proc/sys/kernel/sched_conservative_pl
 #echo 1 > /proc/sys/kernel/sched_walt_rotate_big_tasks
 echo 99 > /proc/sys/kernel/sched_group_upmigrate
-echo 85 > /proc/sys/kernel/sched_group_downmigrate
-echo 96 96 > /proc/sys/kernel/sched_upmigrate
-echo 90 90 > /proc/sys/kernel/sched_downmigrate
+echo 90 > /proc/sys/kernel/sched_group_downmigrate
+echo 98 98 > /proc/sys/kernel/sched_upmigrate
+echo 92 92 > /proc/sys/kernel/sched_downmigrate
 
 # GPU
 # Freq 257000000 345000000 427000000 499200000 585000000 675000000
