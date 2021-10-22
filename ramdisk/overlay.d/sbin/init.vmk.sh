@@ -10,7 +10,7 @@ sleep 15
 # Gold+   825600 940800 1056000 1171200 1286400 1401600 1497600 1612800 1708800 1804800 1920000 2016000 2131200 2227200 2323200 2419200 2534400 2649600 2745600 2841600 2956800 
 
 # CPU silver
-echo 1632000 > /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq
+echo 1708800 > /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq
 #echo 1785600 > /sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq
 # CPU gold
 echo 710400 > /sys/devices/system/cpu/cpufreq/policy4/scaling_min_freq
